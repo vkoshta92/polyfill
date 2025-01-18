@@ -19,3 +19,5 @@ const mul= nums.myMapFunction((num,i,arr)=>{
 return num*3;
 })
 console.log(mul);
+
+
