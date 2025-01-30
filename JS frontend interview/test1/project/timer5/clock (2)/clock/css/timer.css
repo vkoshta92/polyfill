@@ -1,0 +1,49 @@
+body {
+  background: #000000;
+  font-family: 'Roboto', sans-serif;
+}
+
+#timerDiv {
+  text-align: center;
+  color: #ffffff;
+  padding-top: 60px;
+}
+
+#timerDiv .circle {
+  display: inline-block;
+  padding: 50px;
+  border: 5px solid #ff3b5d;
+  border-radius: 100%;
+  width: 100px;
+  height: 100px;
+}
+
+#timerDiv .circle .timer {
+  font-size: 60px;
+  color: yellow;
+}
+
+
+#timerDiv .circle .buttons .button {
+  display: inline-block;
+  background: #ffc107;
+  padding: 6px;
+  margin-top: 10px;
+  color: #000000;
+  font-weight: 500;
+  cursor: pointer;
+  font-size: 13px;
+}
+
+#timerDiv .circle .buttons .button.stop {
+   background: #ff0000;
+   color: #ffffff;
+}
+
+#timerDiv .circle .buttons .button.stop:hover {
+   background: #ff3d3d;
+}
+
+#timerDiv .circle .buttons .button.reset:hover {
+   background: #ffd145;
+}
