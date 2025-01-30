@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      //ab hme kisi function ko jaldi chalan ho to  phle chlna ho to callbackuse krte h
+      // callback hell
+      function register() {
+        return new Promise((resolve, reject) => {
+          setTimeout(() => {
+            //  return reject('eror while resister');
+
+            console.log("Resister end");
+            // const messageData="success email send";
+            // resolve(messageData);
+            resolve();
+          }, 3000);
+        });
+      }
+      //resolve me return likho na likho ak h
+
+      function sendEmail() {
+        return new Promise((resolve, reject) => {
+          setTimeout(() => {
+            // return reject('eror while resister');
+            console.log("Email Send");
+            resolve("success email send");
+          }, 5000);
+        });
+      }
+      function login() {
+        return new Promise((resolve, reject) => {
+          setTimeout(() => {
+            console.log("login");
+            resolve();
+          }, 2000);
+        });
+      }
+
+      function getUserData() {
+        return new Promise((resolve, reject) => {
+          setTimeout(() => {
+            console.log("get user data");
+            resolve();
+          }, 4000);
+        });
+      }
+      function showUserData() {
+        return new Promise((resolve, reject) => {
+          setTimeout(() => {
+            console.log("show user data");
+            resolve();
+          }, 7000);
+        });
+      }
+      // async function khud ak promise return krta hh return new promise nhi lijhna pdta h
+      async function auth() {
+        try {
+           await register();
+           const message =await sendEmail(); // is trh se kisi bhi function ka resolve ke andr parameter ka dara mesaage me store krke use kar skre hai.
+                         await login();
+                            await getUserData();
+                            await showUserData();
+                            // console.log( message);
+                            console.log(message);
+                            
+         
+        }
+         catch (err) {
+          console.log("error mil gayi  bhaiyo.", err);
+          throw new Error(); // ab then va all set run nhi hoga kyoko auth fuct me maine error thow ki h jab ye nhi kiya tha to all set show ho rha tha kyoki  auth me koi error nhi thi hm bki chijo ko try catchh me lagaya tha
+        }
+      }
+
+      auth().then(() => {
+        console.log("all set");
+      })
+      //ase kr skte herror ya await vlo ko try catch me rakh lenge auth vli error bho isse handle ho gayi and bina try catch se sri error bi catch se kr skte hai.
+      .catch((err)=>{
+          console.log(err);
+      })
+      console.log("other process");
+    </script>
+  </body>
+</html>

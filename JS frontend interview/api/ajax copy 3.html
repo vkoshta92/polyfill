@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ajax</title>
+  </head>
+  <body>
+    <script>
+      const url = "https://jsonplaceholder.typicode.com/users";
+      function myAxios(method, url, body = null) {
+        return new Promise((resolve, reject) => {
+          const xhr = new XMLHttpRequest();
+
+          xhr.open(method, url);
+          xhr.responseType = "json"; //for get
+          xhr.setRequestHeader("Content-Type", "application/json");
+          // event listner h
+          xhr.onload = () => {
+            console.log("ok");
+            console.log(xhr);
+            console.log(xhr.status); //200
+            if (xhr.status >= 400) {
+              reject(xhr.response);
+              // console.log("Failed");s
+            } else {
+              resolve(xhr.response);
+              // console.log(xhr.response); // string
+            }
+          };
+
+          // for error listner
+          xhr.onerror = () => {
+            //   console.log("Error");
+            reject(xhr.response);
+          };
+
+          xhr.send(JSON.stringify(body));
+        });
+      }
+
+      myAxios("GET", url);
+
+      // post request
+      myAxios("POST", url, {
+        name: "vishnukant",
+        job: "software engineer",
+      })
+        .then((res) => {
+          console.log("mesaage from then block", res);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    </script>
+  </body>
+</html>
+

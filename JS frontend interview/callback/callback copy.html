@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      //ab hme kisi function ko jaldi chalan ho to  phle chlna ho to callbackuse krte h
+      // callback hell
+      function register(callback) {
+        setTimeout(() => {
+          console.log("Resister end");
+          callback();
+        }, 3000);
+      }
+
+      function sendEmail(callback) {
+        setTimeout(() => {
+          console.log("Email Send");
+          callback();
+        }, 5000);
+      }
+      function login(callback) {
+        setTimeout(() => {
+          console.log("login");
+          callback();
+        }, 2000);
+      }
+
+      function getUserData(callback) {
+        setTimeout(() => {
+          console.log("get user data");
+          callback();
+        }, 4000);
+      }
+      function showUserData() {
+        setTimeout(() => {
+          console.log("show user data");
+        }, 7000);
+      }
+
+      register(function () {
+        sendEmail(function () {
+          login(function () {
+            getUserData(function () {
+              showUserData();
+            });
+          });
+        });
+      });
+
+      console.log("other process");
+    </script>
+  </body>
+</html>

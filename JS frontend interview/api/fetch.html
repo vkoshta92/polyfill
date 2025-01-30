@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+          const url = "https://jsonplaceholder.typicode.com/users";
+        const headers={
+            "Content-Type":'application/json',
+        }
+function myFetch(method,url,body=null){
+    return fetch(url,{
+        method:method,
+        headers:headers,
+        body:JSON.stringify(body)
+    }).then((res)=>{
+        // return res.text();
+        return res.json();
+
+    });
+}
+
+myFetch('POST',url,{
+    name:"vishnukant",
+    job:"coding"
+}).then((res)=>{
+console.log(res);
+})
+//201 jb resorce server par create ho jata  hai to  201  code  ata  hai.
+    </script>
+</body>
+</html>
