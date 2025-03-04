@@ -23,3 +23,8 @@
 // 2
 // 3
 // 4
+
+// https://github.com/ByteByteGoHq/system-design-101
+// https://github.com/yangshun/tech-interview-handbook
+// https://github.com/kdn251/interviews
+
