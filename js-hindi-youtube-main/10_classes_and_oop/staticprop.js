@@ -17,6 +17,7 @@ const hitesh = new User("hitesh")
 
 class Teacher extends User {
     constructor(username, email){
+        // super se extend class ka consstrucer  use krte hai.
         super(username)
         this.email = email
     }
